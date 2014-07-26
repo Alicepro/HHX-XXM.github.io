@@ -1,20 +1,20 @@
 # Site settings
-title: "Willog"
-description: "你的过去，我来不及参与；你的未来，我不会缺席。"
-keywords: "Willin,Willin Wang,王之琳,长岛冰泪"
-author: "Willin Wang"
+title: "XXM's Blog"
+description: "a"
+keywords: "Likis,XXM,XXM工作室,FSDRI"
+author: "Likis"
 baseurl: ""
-url: "http://now.willin.wang"
+url: "http://xxm-ws.com"
 exclude: [README.md, Rakefile, node_modules, Procfile]
 
-duoshuo: willog
-qq: 2539929
-email: willin@willin.org
+duoshuo: Likis
+qq: 83885877
+email: hhx.xxm@gmail.com
 
 # Map settings
-map_provider: http://api.map.baidu.com/staticimage?width=600&height=300&zoom=13&center=
-last_lat: 31.973991
-last_lng: 118.787754
+# map_provider: http://api.map.baidu.com/staticimage?width=600&height=300&zoom=13&center=
+# last_lat: 31.973991
+# last_lng: 118.787754
 
 # Build settings
 truncate: 300
