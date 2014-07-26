@@ -486,7 +486,7 @@ a:hover{
 }
 body {
     font-family: 'Abel', Arial, sans-serif;
-    background: url(/static/Back.png) #702000;
+    background: url(/static/bg.png) #f1f1f1;
     font-weight: 300;
     font-size: 12px;
     color: #ccc;
