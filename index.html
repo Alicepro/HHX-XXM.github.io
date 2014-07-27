@@ -1,142 +1,200 @@
+﻿<div class="dp-highlighter bg_html"><div class="bar"><div class="tools"><b>[html]</b> <a href="#" class="ViewSource" title="view plain" onclick="dp.sh.Toolbar.Command('ViewSource',this);return false;">view plain</a><a href="#" class="CopyToClipboard" title="copy" onclick="dp.sh.Toolbar.Command('CopyToClipboard',this);return false;">copy</a><a href="#" class="PrintSource" title="print" onclick="dp.sh.Toolbar.Command('PrintSource',this);return false;">print</a><a href="#" class="About" title="?" onclick="dp.sh.Toolbar.Command('About',this);return false;">?</a><div style="position: absolute; left: 0px; top: 0px; width: 0px; height: 0px; z-index: 99;"><embed id="ZeroClipboardMovie_2" src="http://static.blog.csdn.net/scripts/ZeroClipboard/ZeroClipboard.swf" loop="false" menu="false" quality="best" bgcolor="#ffffff" name="ZeroClipboardMovie_2" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=2&width=0&height=0" wmode="transparent" align="middle" height="0" width="0"></div></div></div><ol class="dp-xml" start="1"><li class="alt"><span><span><!DOCTYPE&nbsp;html</span><span class="tag">></span><span>&nbsp;&nbsp;</span></span></li><li class=""><span><span class="tag"><</span><span class="tag-name">html</span><span class="tag">></span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag"><</span><span class="tag-name">head</span><span class="tag">></span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag"><</span><span class="tag-name">meta</span><span>&nbsp;</span><span class="attribute">charset</span><span>=</span><span class="attribute-value">"utf-8"</span><span>&nbsp;</span><span class="tag">/></span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag"><</span><span class="tag-name">title</span><span class="tag">></span><span>春天，陪你一起去赏雨——HTML5下雨效果</span><span class="tag"></</span><span class="tag-name">title</span><span class="tag">></span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag"><</span><span class="tag-name">style</span><span>&nbsp;</span><span class="attribute">type</span><span>=</span><span class="attribute-value">"text/css"</span><span class="tag">></span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#box{&nbsp;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;border:2px&nbsp;solid&nbsp;#f60;&nbsp;margin:0&nbsp;auto;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag"></</span><span class="tag-name">style</span><span class="tag">></span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag"><</span><span class="tag-name">script</span><span class="tag">></span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;<span class="attribute">floor</span><span>&nbsp;=&nbsp;</span><span class="attribute-value">Math</span><span>.floor;//向下取整&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;canvas;//画布&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;context;//画布上下文&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;width;//背景图片、画布宽&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;height;//背景图片、画布宽&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;size;//像素点个数、width*height&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;<span class="attribute">nextPoint</span><span>&nbsp;=&nbsp;[];//下一振幅&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;<span class="attribute">prePoint</span><span>&nbsp;=&nbsp;[];//上一振幅&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;<span class="attribute">tempPoint</span><span>&nbsp;=&nbsp;[];//临时存储&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;imgData;//背景图片数据&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;<span class="attribute">speed</span><span>&nbsp;=&nbsp;</span><span class="attribute-value">100</span><span>;//下雨大小，默认是一秒钟一个雨滴&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;<span class="attribute">weight</span><span>&nbsp;=&nbsp;</span><span class="attribute-value">1000</span><span>;//雨滴的大小&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/**&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;author:qingfeilee&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;date:2012-03-24&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description:开始启动程序&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**/&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;start()&nbsp;{&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;initImage("background.jpg");&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/**&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;author:qingfeilee&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;date:2012-03-24&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description:初始化图片信息&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**/&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;initImage(src)&nbsp;{&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;<span class="attribute">img</span><span>&nbsp;=&nbsp;</span><span class="attribute-value">new</span><span>&nbsp;Image();&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">img.src</span><span>&nbsp;=&nbsp;</span><span class="attribute-value">src</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">img.onload</span><span>&nbsp;=&nbsp;</span><span class="attribute-value">function</span><span>()&nbsp;{&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;init(img);&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/**&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;author:qingfeilee&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;date:2012-03-24&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description:初始化系统函数&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**/&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;init(img){&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;initSize(img);&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;initPoint();&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;initCanvas();&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;loadImage(img);&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/**&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;author:qingfeilee&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;date:2012-03-24&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description:绘制图片函数&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**/&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;loadImage(img){&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;context.drawImage(img,&nbsp;0,&nbsp;0);&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">imgData</span><span>&nbsp;=&nbsp;</span><span class="attribute-value">context</span><span>.getImageData(0,&nbsp;0,&nbsp;width,&nbsp;height);&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setInterval(spread,&nbsp;1000/60);&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setInterval(rain,&nbsp;speed);&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/**&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;author:qingfeilee&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;date:2012-03-24&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description:初始化画布信息&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**/&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;initCanvas(){&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">canvas</span><span>&nbsp;=&nbsp;</span><span class="attribute-value">document</span><span>.getElementById('ripper');&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">context</span><span>&nbsp;=</span><span class="attribute-value">canvas</span><span>.getContext('2d');&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">canvas.width</span><span>&nbsp;=&nbsp;</span><span class="attribute-value">width</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">canvas.height</span><span>&nbsp;=&nbsp;</span><span class="attribute-value">height</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">canvas.onclick</span><span>&nbsp;=&nbsp;</span><span class="attribute-value">function</span><span>(e)&nbsp;{&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setDropPoint(floor(e.clientX-(document.body.clientWidth&nbsp;&nbsp;-&nbsp;width)/2),&nbsp;floor(e.clientY&nbsp;-&nbsp;(document.body.clientHeight&nbsp;&nbsp;-&nbsp;height)&nbsp;/&nbsp;2),&nbsp;15000);&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/**&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;author:qingfeilee&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;date:2012-03-24&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description:设置画布宽高及画布像素数&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**/&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;initSize(img){&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">width</span><span>&nbsp;=&nbsp;</span><span class="attribute-value">img</span><span>.width;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">height</span><span>&nbsp;=&nbsp;</span><span class="attribute-value">img</span><span>.height;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.getElementById("box")<span class="attribute">.style.width</span><span>&nbsp;=&nbsp;</span><span class="attribute-value">width</span><span>+"px";&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.getElementById("box")<span class="attribute">.style.height</span><span>&nbsp;=&nbsp;</span><span class="attribute-value">height</span><span>+"px";&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">size</span><span>&nbsp;=&nbsp;</span><span class="attribute-value">width</span><span>*height;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/**&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;author:qingfeilee&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;date:2012-03-24&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description:初始化存储图像前一个和后一个点的数组&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**/&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;initPoint(){&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(var&nbsp;<span class="attribute">i</span><span>&nbsp;=&nbsp;</span><span class="attribute-value">0</span><span>;&nbsp;i&nbsp;</span><span class="tag"><</span><span>&nbsp;</span><span class="tag-name">size</span><span>;&nbsp;i++)&nbsp;{&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nextPoint.push(0);&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;prePoint.push(0);&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/**&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;author:qingfeilee&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;date:2012-03-24&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description:一石激起千层浪，设置波动点及注入的能量&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;其中x表示物体进入水面的X坐标，Y表示物体进入水面的Y坐标，power表示物体的能量大小&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**/&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;setDropPoint(x,&nbsp;y,&nbsp;power)&nbsp;{&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(x&nbsp;<span class="tag"><</span><span>&nbsp;</span><span class="tag-name">2</span><span>&nbsp;||&nbsp;x&nbsp;</span><span class="tag">></span><span>&nbsp;width&nbsp;-&nbsp;2&nbsp;||&nbsp;y&nbsp;</span><span class="tag"><</span><span>&nbsp;</span><span class="tag-name">1</span><span>&nbsp;||&nbsp;y&nbsp;</span><span class="tag">></span><span>&nbsp;height&nbsp;-&nbsp;2)&nbsp;return;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;<span class="attribute">i</span><span>&nbsp;=&nbsp;</span><span class="attribute-value">x</span><span>&nbsp;+&nbsp;y&nbsp;*&nbsp;width;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nextPoint[i]&nbsp;+=&nbsp;power;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nextPoint[i&nbsp;-&nbsp;1]&nbsp;<span class="attribute">-</span><span>=&nbsp;</span><span class="attribute-value">power</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/**&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;author:qingfeilee&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;date:2012-03-24&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description:核心算法，处理像素的波动效果&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PS:该算法非原创，借鉴网络上多个版本算法综合&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**/&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;spread()&nbsp;{&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;<span class="attribute">img</span><span>&nbsp;=&nbsp;</span><span class="attribute-value">context</span><span>.getImageData(0,&nbsp;0,&nbsp;width,&nbsp;height),&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">data</span><span>&nbsp;=&nbsp;</span><span class="attribute-value">img</span><span>.data;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//平均一下各个点的能量&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(var&nbsp;<span class="attribute">i</span><span>&nbsp;=&nbsp;</span><span class="attribute-value">width</span><span>&nbsp;+&nbsp;1;&nbsp;i&nbsp;</span><span class="tag"><</span><span>&nbsp;</span><span class="tag-name">size</span><span>&nbsp;-&nbsp;width&nbsp;-&nbsp;1;&nbsp;i&nbsp;+=&nbsp;2)&nbsp;{&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(var&nbsp;<span class="attribute">x</span><span>&nbsp;=&nbsp;</span><span class="attribute-value">1</span><span>;&nbsp;x&nbsp;</span><span class="tag"><</span><span>&nbsp;</span><span class="tag-name">width</span><span>&nbsp;-&nbsp;1;&nbsp;x++,&nbsp;i++)&nbsp;{&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nextPoint[i]&nbsp;=&nbsp;(nextPoint[i]&nbsp;+&nbsp;nextPoint[i&nbsp;+&nbsp;1]&nbsp;+&nbsp;nextPoint[i&nbsp;-&nbsp;1]&nbsp;+&nbsp;nextPoint[i&nbsp;-&nbsp;width]&nbsp;+&nbsp;nextPoint[i&nbsp;+&nbsp;width])&nbsp;/&nbsp;5;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//渲染除了第一行、最后一行、第一列、最后一列外的所有点&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(var&nbsp;<span class="attribute">i</span><span>&nbsp;=&nbsp;</span><span class="attribute-value">width</span><span>&nbsp;+&nbsp;1;&nbsp;i&nbsp;</span><span class="tag"><</span><span>&nbsp;</span><span class="tag-name">size</span><span>&nbsp;-&nbsp;width&nbsp;-&nbsp;1;&nbsp;i&nbsp;+=&nbsp;2)&nbsp;{&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(var&nbsp;<span class="attribute">x</span><span>&nbsp;=&nbsp;</span><span class="attribute-value">1</span><span>;&nbsp;x&nbsp;</span><span class="tag"><</span><span>&nbsp;</span><span class="tag-name">width</span><span>&nbsp;-&nbsp;1;&nbsp;x++,&nbsp;i++)&nbsp;{&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//水波振幅线性公式参考的是网络上的一些研究文献得出的&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;prePoint[i]&nbsp;=&nbsp;(nextPoint[i&nbsp;-&nbsp;1]&nbsp;+&nbsp;nextPoint[i&nbsp;+&nbsp;1]&nbsp;+&nbsp;nextPoint[i&nbsp;+&nbsp;width]&nbsp;+&nbsp;nextPoint[i&nbsp;-&nbsp;width])/2&nbsp;-&nbsp;prePoint[i];&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;<span class="attribute">ti</span><span>&nbsp;=&nbsp;</span><span class="attribute-value">i</span><span>&nbsp;+&nbsp;floor((prePoint[i&nbsp;-&nbsp;2]&nbsp;-&nbsp;prePoint[i])&nbsp;*&nbsp;0.08)&nbsp;+&nbsp;floor((prePoint[i&nbsp;-&nbsp;width]&nbsp;-&nbsp;prePoint[i])&nbsp;*&nbsp;0.08)&nbsp;*&nbsp;width;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">ti</span><span>&nbsp;=&nbsp;</span><span class="attribute-value">ti</span><span>&nbsp;</span><span class="tag"><</span><span>&nbsp;</span><span class="tag-name">0</span><span>&nbsp;?&nbsp;0&nbsp;:&nbsp;ti&nbsp;</span><span class="tag">></span><span>&nbsp;size&nbsp;?&nbsp;size:&nbsp;ti;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;<span class="attribute">light</span><span>&nbsp;=&nbsp;</span><span class="attribute-value">prePoint</span><span>[i]&nbsp;*&nbsp;2.0&nbsp;-&nbsp;prePoint[i&nbsp;-&nbsp;2]&nbsp;*&nbsp;0.6;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">light</span><span>&nbsp;=&nbsp;</span><span class="attribute-value">light</span><span>&nbsp;</span><span class="tag"><</span><span>&nbsp;</span><span class="tag-name">-10</span><span>&nbsp;?&nbsp;-10&nbsp;:&nbsp;light&nbsp;</span><span class="tag">></span><span>&nbsp;100&nbsp;?&nbsp;100&nbsp;:&nbsp;light;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//之所以是i*4是因为canvas获取的data数据每四个值表示一个像素包括分别是红/绿/蓝/透明,要想了解更多关于canvas的请参看我的另一篇blog：http://blog.csdn.net/qingfeilee/article/details/7233683&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data[i&nbsp;*&nbsp;4]&nbsp;=&nbsp;imgData.data[ti&nbsp;*&nbsp;4]&nbsp;+&nbsp;light;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data[i&nbsp;*&nbsp;4&nbsp;+&nbsp;1]&nbsp;=&nbsp;imgData.data[ti&nbsp;*&nbsp;4&nbsp;+&nbsp;1]&nbsp;+&nbsp;light;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data[i&nbsp;*&nbsp;4&nbsp;+&nbsp;2]&nbsp;=&nbsp;imgData.data[ti&nbsp;*&nbsp;4&nbsp;+&nbsp;2]&nbsp;+&nbsp;light;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//波能渐渐衰减&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;prePoint[i]&nbsp;<span class="attribute">-</span><span>=&nbsp;</span><span class="attribute-value">prePoint</span><span>[i]</span><span class="tag">></span><span class="tag">></span><span>5;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">tempPoint</span><span>&nbsp;=&nbsp;</span><span class="attribute-value">nextPoint</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">nextPoint</span><span>&nbsp;=&nbsp;</span><span class="attribute-value">prePoint</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">prePoint</span><span>&nbsp;=&nbsp;</span><span class="attribute-value">tempPoint</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;context.putImageData(img,&nbsp;0,&nbsp;0);&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;rain(){&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setDropPoint(floor(Math.random()*width),&nbsp;floor(Math.random()*height),&nbsp;floor(Math.random()*weight));&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;setWeight(weight){&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">this.weight</span><span>&nbsp;=&nbsp;</span><span class="attribute-value">weight</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window.addEventListener("load",&nbsp;start,&nbsp;true);&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag"></</span><span class="tag-name">script</span><span class="tag">></span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag"></</span><span class="tag-name">head</span><span class="tag">></span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag"><</span><span class="tag-name">body</span><span class="tag">></span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag"><</span><span class="tag-name">div</span><span>&nbsp;</span><span class="attribute">id</span><span>=</span><span class="attribute-value">"box"</span><span class="tag">></span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag"><</span><span class="tag-name">canvas</span><span>&nbsp;</span><span class="attribute">id</span><span>=</span><span class="attribute-value">"ripper"</span><span>&nbsp;</span><span class="attribute">style</span><span>=</span><span class="attribute-value">"width:100%;height:100%;&nbsp;"</span><span class="tag">></span><span class="tag"></</span><span class="tag-name">canvas</span><span class="tag">></span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag"><</span><span class="tag-name">div</span><span>&nbsp;</span><span class="attribute">align</span><span>=</span><span class="attribute-value">"center"</span><span class="tag">></span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag"><</span><span class="tag-name">button</span><span>&nbsp;</span><span class="attribute">onclick</span><span>&nbsp;=&nbsp;</span><span class="attribute-value">"setWeight('1000')"</span><span class="tag">></span><span>小雨</span><span class="tag"></</span><span class="tag-name">button</span><span class="tag">></span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag"><</span><span class="tag-name">button</span><span>&nbsp;</span><span class="attribute">onclick</span><span>&nbsp;=&nbsp;</span><span class="attribute-value">"setWeight('10000')"</span><span class="tag">></span><span>中雨</span><span class="tag"></</span><span class="tag-name">button</span><span class="tag">></span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag"><</span><span class="tag-name">button</span><span>&nbsp;</span><span class="attribute">onclick</span><span>&nbsp;=&nbsp;</span><span class="attribute-value">"setWeight('20000')"</span><span class="tag">></span><span>大雨</span><span class="tag"></</span><span class="tag-name">button</span><span class="tag">></span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag"></</span><span class="tag-name">div</span><span class="tag">></span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag"></</span><span class="tag-name">div</span><span class="tag">></span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag"><</span><span class="tag-name">div</span><span class="tag">></span><span class="tag"><</span><span class="tag-name">h5</span><span>&nbsp;</span><span class="attribute">style</span><span>&nbsp;=&nbsp;</span><span class="attribute-value">"text-align:center"</span><span class="tag">></span><span class="tag"><</span><span class="tag-name">a</span><span>&nbsp;</span><span class="attribute">href</span><span>&nbsp;=&nbsp;</span><span class="attribute-value">'http://blog.csdn.net/qingfeilee/'</span><span class="tag">></span><span>阿飞blog</span><span class="tag"></</span><span class="tag-name">a</span><span class="tag">></span><span class="tag"></</span><span class="tag-name">h5</span><span class="tag">></span><span class="tag"></</span><span class="tag-name">div</span><span class="tag">></span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag"></</span><span class="tag-name">div</span><span class="tag">></span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag"></</span><span class="tag-name">body</span><span class="tag">></span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span><span class="tag"></</span><span class="tag-name">html</span><span class="tag">></span><span>&nbsp;&nbsp;</span></span></li></ol></div><pre style="display: none;" name="code" class="html"><!DOCTYPE html>
+<html>
+    <head>
+    	<meta charset="utf-8" />
+    	<title>春天，陪你一起去赏雨——HTML5下雨效果</title>
+    	<style type="text/css">
+			#box{ 
+				border:2px solid #f60; margin:0 auto;
+			}
+		</style>
+        <script>
+            var floor = Math.floor;//向下取整
+            var canvas;//画布
+            var context;//画布上下文
+            var width;//背景图片、画布宽
+            var height;//背景图片、画布宽
+            var size;//像素点个数、width*height
+            var nextPoint = [];//下一振幅
+            var prePoint = [];//上一振幅
+            var tempPoint = [];//临时存储
+            var imgData;//背景图片数据
+            var speed = 100;//下雨大小，默认是一秒钟一个雨滴
+            var weight = 1000;//雨滴的大小
+            /**
+            	author:qingfeilee
+            	date:2012-03-24
+            	description:开始启动程序
+            **/
+            function start() {
+               	initImage("background.jpg");
+            }
+			/**
+            	author:qingfeilee
+            	date:2012-03-24
+            	description:初始化图片信息
+            **/
+            function initImage(src) {
+                var img = new Image();
+                img.src = src;
+                img.onload = function() {
+                    init(img);
+                };
+            }
+            /**
+            	author:qingfeilee
+            	date:2012-03-24
+            	description:初始化系统函数
+            **/
+            function init(img){
+            		initSize(img);
+                    initPoint();
+                	initCanvas();
+                	loadImage(img);
+            }
+            /**
+            	author:qingfeilee
+            	date:2012-03-24
+            	description:绘制图片函数
+            **/
+            function loadImage(img){
+            	context.drawImage(img, 0, 0);
+                imgData = context.getImageData(0, 0, width, height);
+                setInterval(spread, 1000/60);
+                setInterval(rain, speed);
+            }
+            /**
+            	author:qingfeilee
+            	date:2012-03-24
+            	description:初始化画布信息
+            **/
+            function initCanvas(){
+            	canvas = document.getElementById('ripper');
+                context =canvas.getContext('2d');
+                canvas.width = width;
+                canvas.height = height;
+                canvas.onclick = function(e) {
+                    setDropPoint(floor(e.clientX-(document.body.clientWidth  - width)/2), floor(e.clientY - (document.body.clientHeight  - height) / 2), 15000);
+                }
+            }
+            /**
+            	author:qingfeilee
+            	date:2012-03-24
+            	description:设置画布宽高及画布像素数
+            **/
+            function initSize(img){
+            	width = img.width;
+            	height = img.height;
+            	document.getElementById("box").style.width = width+"px";
+            	document.getElementById("box").style.height = height+"px";
+            	size = width*height;
+            }
+            /**
+            	author:qingfeilee
+            	date:2012-03-24
+            	description:初始化存储图像前一个和后一个点的数组
+            **/
+            function initPoint(){
+				for (var i = 0; i < size; i++) {
+                    nextPoint.push(0);
+                    prePoint.push(0);
+                }            	
+            }
+			/**
+            	author:qingfeilee
+            	date:2012-03-24
+            	description:一石激起千层浪，设置波动点及注入的能量
+            				其中x表示物体进入水面的X坐标，Y表示物体进入水面的Y坐标，power表示物体的能量大小
+            **/
+            function setDropPoint(x, y, power) {
+                if (x < 2 || x > width - 2 || y < 1 || y > height - 2) return;
+                var i = x + y * width;
+                nextPoint[i] += power;
+                nextPoint[i - 1] -= power;
+            }
+			/**
+				author:qingfeilee
+				date:2012-03-24
+				description:核心算法，处理像素的波动效果
+				PS:该算法非原创，借鉴网络上多个版本算法综合
+			**/
+            function spread() {
+                var img = context.getImageData(0, 0, width, height),
+                data = img.data;
+				//平均一下各个点的能量
+                for (var i = width + 1; i < size - width - 1; i += 2) {
+                    for (var x = 1; x < width - 1; x++, i++) {
+                        nextPoint[i] = (nextPoint[i] + nextPoint[i + 1] + nextPoint[i - 1] + nextPoint[i - width] + nextPoint[i + width]) / 5;
+                    }
+                }
+				//渲染除了第一行、最后一行、第一列、最后一列外的所有点
+                for (var i = width + 1; i < size - width - 1; i += 2) {
+                    for (var x = 1; x < width - 1; x++, i++) {
+                    	//水波振幅线性公式参考的是网络上的一些研究文献得出的
+                        prePoint[i] = (nextPoint[i - 1] + nextPoint[i + 1] + nextPoint[i + width] + nextPoint[i - width])/2 - prePoint[i];
+                        var ti = i + floor((prePoint[i - 2] - prePoint[i]) * 0.08) + floor((prePoint[i - width] - prePoint[i]) * 0.08) * width;
+                        ti = ti < 0 ? 0 : ti > size ? size: ti;
+                        var light = prePoint[i] * 2.0 - prePoint[i - 2] * 0.6;
+                        light = light < -10 ? -10 : light > 100 ? 100 : light;
+                        //之所以是i*4是因为canvas获取的data数据每四个值表示一个像素包括分别是红/绿/蓝/透明,要想了解更多关于canvas的请参看我的另一篇blog：http://blog.csdn.net/qingfeilee/article/details/7233683
+                        data[i * 4] = imgData.data[ti * 4] + light;
+                        data[i * 4 + 1] = imgData.data[ti * 4 + 1] + light;
+                        data[i * 4 + 2] = imgData.data[ti * 4 + 2] + light;
+                        //波能渐渐衰减
+                        prePoint[i] -= prePoint[i]>>5;
+                    }
+                }
+                tempPoint = nextPoint;
+                nextPoint = prePoint;
+                prePoint = tempPoint;
+                context.putImageData(img, 0, 0);
+            }
+            
+            function rain(){
+            	setDropPoint(floor(Math.random()*width), floor(Math.random()*height), floor(Math.random()*weight));
+            }
+            function setWeight(weight){
+            	this.weight = weight;
+            }
+            
+            window.addEventListener("load", start, true);
+        </script>
+        
+    </head>
+    
+    <body>
+    	<div id="box">
+        	<canvas id="ripper" style="width:100%;height:100%; "></canvas>
+        	<div align="center">
+        	<button onclick = "setWeight('1000')">小雨</button>
+        	<button onclick = "setWeight('10000')">中雨</button>
+        	<button onclick = "setWeight('20000')">大雨</button>
+        	
+        </div>
+        </div>
+        <div><h5 style = "text-align:center"><a href = 'http://blog.csdn.net/qingfeilee/'>阿飞blog</a></h5></div>
+        </div>
+    </body>
 
- <html>
-<head>
-<title>����</title>
-<style type="text/css">
-<!--
-body {  font-family: "����"; font-size: 9pt; margin-top: 0px; margin-left: 0px; margin-right: 0px}
-A { COLOR: black; FONT-SIZE: 9pt; FONT-WEIGHT: 400; TEXT-DECORATION: none }
- A:hover { COLOR: red; FONT-SIZE: 9pt; FONT-WEIGHT: 400; TEXT-DECORATION: underline }
-a:active     { font: 9pt "����"; cursor: hand; color: #FF0033 }
+</html></pre><br>
+<br>
+<pre></pre>
+<p><span style="font-size:18px; text-align:left">&nbsp; &nbsp; &nbsp; &nbsp;核心算法的解释，在我们利用这个水波原理解析图像的时候我们只需要获取除了第一行、最后一行、第一列、最后一列的像素点即可，如图二：</span></p>
+<p style="text-align:center"><span style="font-size:18px; text-align:left"><img src="http://my.csdn.net/uploads/201203/26/1332764398_3452.jpg" alt=""></span></p>
+<p style="text-align:center"><span style="font-size:18px; text-align:left">图二</span></p>
+<p style="text-align:left"><span style="font-size:18px">本Demo中还需要一张背景图片，注：图片不能太大、否则画面将比较不流畅。本文的背景图片如图三：</span></p>
+<p style="text-align:center"><span style="font-size:18px"><img src="http://my.csdn.net/uploads/201203/26/1332764717_6588.jpg" alt=""></span></p>
+<p style="text-align:center"><span style="font-size:18px">图三</span></p>
+<p></p>
+<p></p>
+<div style="text-align:left"><span style="font-size:18px">&nbsp; &nbsp; &nbsp; &nbsp;由代码注释较详细，具体就不再赘述。倘若对Canvas不太了解希望我的另外一篇blog《<a href="http://blog.csdn.net/qingfeilee/article/details/7233683">通过小画板认识Canvas</a>》能够帮助到你。<span style="font-family:FangSong_GB2312; text-align:left; font-size:18px">哪位大牛有好的算法实现希望能够多多交流，共同学习，共同进步，欢迎拍砖<img alt="哭" src="http://static.blog.csdn.net/xheditor/xheditor_emot/default/cry.gif">。</span></span></div>
+<div style="text-align:left"><span style="font-size:18px"><span style="font-family:FangSong_GB2312; text-align:left; font-size:18px"><span style="font-family:FangSong_GB2312; text-align:left; background-color:white; font-size:18px">&nbsp; &nbsp; 本文乃原创Demo，转载请注明出处：</span><span style="font-family:FangSong_GB2312; text-align:left; background-color:white; font-size:18px; color:rgb(255,153,0)"><a href="http://blog.csdn.net/qingfeilee/article/details/7377462" style="font-family:FangSong_GB2312; text-align:left; background-color:white; font-size:18px"></a><a href="http://blog.csdn.net/qingfeilee/article/details/7394735">http://blog.csdn.net/qingfeilee/article/details/7394735</a>&nbsp;</span></span></span><span style="background-color:white; font-size:18px">使用代码请保留作者署名，O(∩_∩)O谢谢</span></div>
+<div style="text-align:left"><span style="background-color:white; font-size:18px">本Demo的附件下载地址：<a href="http://download.csdn.net/detail/qingfeilee/4174536">http://download.csdn.net/detail/qingfeilee/4174536</a></span></div>
+<div style="text-align:left"><span style="background-color:white; font-size:18px"><span style="color:#990000">&nbsp; &nbsp; &nbsp;备注：本代码直接在chrome和firefox下面运行无法运行需要放到服务器里通过http://ip的形式来访问才行，safari可以直接访问但是运行效率较低。之所以前两者不能直接运行的，是因为chrome和firefox两家浏览器的安全策略所致getImageData()不能获取图片数据的原因，但是通过网络即可。</span></span></div>
+<p></p>
+<pre></pre>
+<pre></pre>
+<pre></pre>
+<pre></pre>
 
--->
-</style>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
-</head>
 
-<body >
-<script language="JavaScript">
-<!--
-var no = 50;
-var speed = -1;
-var ns4up = (document.layers) ? 1 : 0;
-var ie4up = (document.all) ? 1 : 0;
-var s, x, y, sn, cs;
-var a, r, cx, cy;
-var i, doc_width = 800, doc_height = 600;
-if (ns4up) {
-doc_width = self.innerWidth;
-doc_height = self.innerHeight;
-}
-else
-if (ie4up) {
-doc_width = document.body.clientWidth;
-doc_height = document.body.clientHeight;
-}
-x = new Array();
-y = new Array();
-r = new Array();
-cx = new Array();
-cy = new Array();
-s = 8;
-for (i = 0; i < no; ++ i) {  
-initRain();
-if (ns4up) {
-if (i == 0) {
-document.write("<layer name=\"dot"+ i +"\" left=\"1\" ");
-document.write("top=\"1\" visibility=\"show\"><font color=\"red\">");
-document.write(",</font></layer>");
-}
-else {
-document.write("<layer name=\"dot"+ i +"\" left=\"1\" ");
-document.write("top=\"1\" visibility=\"show\"><font color=\"red\">");
-document.write(",</font></layer>");
-   }
-}
-else 
-if (ie4up) {
-if (i == 0) {
-document.write("<div id=\"dot"+ i +"\" style=\"POSITION: ");
-document.write("absolute; Z-INDEX: "+ i +"; VISIBILITY: ");
-document.write("visible; TOP: 15px; LEFT: 15px;\"><font color=\"red\">");
-document.write(",</font></div>");
-}
-else {
-document.write("<div id=\"dot"+ i +"\" style=\"POSITION: ");
-document.write("absolute; Z-INDEX: "+ i +"; VISIBILITY: ");
-document.write("visible; TOP: 15px; LEFT: 15px;\"><font color=\"red\">");
-document.write(",</font></div>");
-      }
-   }
-}
-function initRain() {
-a = 6;
-r[i] = 1;
-sn = Math.sin(a);
-cs = Math.cos(a);
-cx[i] = Math.random() * doc_width + 1;
-cy[i] = Math.random() * doc_height + 1;
-x[i] = r[i] * sn + cx[i];
-y[i] = cy[i];
-}
-function makeRain() {
-r[i] = 1;
-cx[i] = Math.random() * doc_width + 1;
-cy[i] = 1;
-x[i] = r[i] * sn + cx[i];
-y[i] = r[i] * cs + cy[i];
-}
-function updateRain() {
-r[i] += s;
-x[i] = r[i] * sn + cx[i];
-y[i] = r[i] * cs + cy[i];
-}
-function raindropNS() {
-for (i = 0; i < no; ++ i) {
-updateRain();
-if ((x[i] <= 1) || (x[i] >= (doc_width - 20)) || (y[i] >= (doc_height - 20))) {
-makeRain();
-doc_width = self.innerWidth;
-doc_height = self.innerHeight;
-}
-document.layers["dot"+i].top = y[i];
-document.layers["dot"+i].left = x[i];
-}
-setTimeout("raindropNS()", speed);
-}
-function raindropIE() {
-for (i = 0; i < no; ++ i) {
-updateRain();
-if ((x[i] <= 1) || (x[i] >= (doc_width - 20)) || (y[i] >= (doc_height - 20))) {
-makeRain();
-doc_width = document.body.clientWidth;
-doc_height = document.body.clientHeight;
-}
-document.all["dot"+i].style.pixelTop = y[i];
-document.all["dot"+i].style.pixelLeft = x[i];
-}
-setTimeout("raindropIE()", speed);
-}
-if (ns4up) {
-raindropNS();
-}
-else
-if (ie4up) {
-raindropIE();
-}
-
--->
-</script>
-<br>
-<br>
-<center><font color=red face="����" size=6>����</font></center>
-<br>
-<br><center>
-<table border=5 bordercolor=black borderlight=green>
-<tr><td align=center><font size=5 color=red face="Arial, Helvetica, sans-serif"><strong>���µò�С��!!!</strong></font></td></tr>
-</table></center>
-<br>
-<br>
-
-</body>
-</html>
